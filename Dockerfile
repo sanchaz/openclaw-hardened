@@ -39,3 +39,5 @@ RUN set -eux; \
 
 USER ${APP_USER}
 WORKDIR /home/openclaw
+
+CMD ["/bin/bash", "-lc", "exec cloudflared tunnel run --token \"$CLOUDFLARE_ZERO_TRUST_TOKEN\""]
