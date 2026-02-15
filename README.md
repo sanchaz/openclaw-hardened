@@ -10,7 +10,7 @@ docker build -t openclaw-cloudflared-secure .
 ## Run
 
 ```bash
-docker run --name openclaw --rm -d \
+docker run --name openclaw -d \
   -e CLOUDFLARE_ZERO_TRUST_TOKEN="$CLOUDFLARE_ZERO_TRUST_TOKEN" \
   openclaw-cloudflared-secure
 ```
@@ -19,4 +19,4 @@ docker run --name openclaw --rm -d \
 docker exec -it openclaw bash
 ```
 
-This keeps the container non-permanent (`--rm`) and removes it automatically after `docker stop openclaw`.
+This creates a persistent container named `openclaw`. Remove it with `docker rm -f openclaw` when done.
